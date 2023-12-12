@@ -1,0 +1,163 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+
+    <title>Calling Multiple Hospital</title>
+    <style>
+      /* Modify the background color */
+       
+      .navbar-custom {
+          background-color: #EB8E1F;
+      }
+      /* Modify brand and text color */
+      .btn-primary{
+          background-color: #EB8E1F;
+      } 
+      
+
+     
+
+  </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light navbar-custom">
+      
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto ">
+          <li>
+            <img src="{% static 'images/logo.png' %}" alt="My image"> 
+          </li>
+          <li class="nav-item active">
+            
+            <a class="nav-link" href="/home"
+              >Home <span class="sr-only">(current)</span></a
+            >
+          </li>
+          <li>
+            <a class="nav-link" href="/search"
+              >Search <span class="sr-only">(current)</span></a
+            >
+          </li>
+          
+        </ul>
+        
+      </div>
+    </nav>
+    <div class ="container" style="padding-top: 100px;">
+      </div>
+    <div class ="container">
+    <div class="row" style="padding-left: 10px;">
+        <div class="custom_heading-container ">
+          <h2>
+            Select your City .....
+          </h2>
+        </div>
+      </div>
+    
+        <div class = "row">
+        <div class="col-md-6">
+
+
+          <!-- <form action="/city_selection" method ="POST" enctype="multipart/form-data">
+            <label for="browser" class="form-label">Choose your City from the list:</label>
+            <input class="form-control" list="browsers" name="city_name_selected" id="city_name_selected">
+            <datalist id="browsers">
+              <!-- {% for i in city_names_dict %}
+              <option value="{{ i.id }}">{{ i.city_name }} </option>
+              {% endfor %} -->
+              <!-- <option value="Heres the city">Heres the city</option>
+              <option value="Heres the city">Heres the city</option>
+            </datalist>    
+            <button type="submit" class="btn btn-primary mt-3">Submit</button>
+          </form> --> 
+
+          <form action="/city_selection" method ="POST" enctype="multipart/form-data">
+            <label for="cars">Choose your city:</label>
+            <select name="city_name_selected" id="city_name_selected">
+              {% for i in city_names_dict %}
+              <option value="{{ i.id }}">{{ i.city_name }} </option>
+              {% endfor %}
+            </select>
+            <br><br>
+            <input type="submit"  class="btn btn-primary" value="Submit">
+          </form>  
+
+
+
+              <form action = "/make-call-to-hospital" method ="POST" enctype="multipart/form-data">  
+              <div class="form-group">
+                <label for="exampleInputMessage">Call Back Number</label>
+                <input type="text" class="form-control" value = "" name = "callerbacknumber"  placeholder="Phone number">
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+        <div class="col-md-6">
+
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Sno</th>
+                <th scope="col">Hospital Name</th>
+                <th scope="col">Phone Number</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for item in hospital_detail %}
+              <tr>
+                <th scope="row">1</th>
+                <td>{{ item.city_hospital }}</td>
+                <td>{{ item.hospital_number }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        <!-- <div class="form-group"></div> -->
+            <!-- <label for="exampleInputMessage">Output</label> -->
+                <!-- <textarea id="my-text" rows="10" cols="50"></textarea>
+                
+                <script>
+                    document.getElementById("my-text").value = `{{ form }}`;
+                </script> -->
+            <!-- </div> -->
+        </div>
+    </div>
+</div>
+</div>
+   
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
