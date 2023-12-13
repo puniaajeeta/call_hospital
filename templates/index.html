@@ -113,15 +113,15 @@
           <table class="table">
             <thead>
               <tr>
-                <th scope="col">Sno</th>
                 <th scope="col">Hospital Name</th>
                 <th scope="col">Phone Number</th>
               </tr>
             </thead>
             <tbody>
               {% for item in hospital_detail %}
+            
               <tr>
-                <th scope="row">1</th>
+                <!-- <th scope="row">{{ i }}</th> -->
                 <td>{{ item.city_hospital }}</td>
                 <td>{{ item.hospital_number }}</td>
               </tr>
