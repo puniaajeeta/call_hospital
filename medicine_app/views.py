@@ -70,8 +70,10 @@ def make_call_to_hospital(request):
     
         # Find your Account SID and Auth Token at twilio.com/console
         # and set the environment variables. See http://twil.io/secure
-        account_sid = os.environ['TWILIO_ACCOUNT_SID']
-        auth_token = os.environ['TWILIO_AUTH_TOKEN']
+        # account_sid = os.environ['TWILIO_ACCOUNT_SID']
+        # auth_token = os.environ['TWILIO_AUTH_TOKEN']
+        account_sid ="AC98822395e328672df7cdeb080d67bec3"
+        auth_token ="82455b119a9a09c0e1ff73a9b7f0475c"
         client = Client(account_sid, auth_token)
 
         for Num in Num_list:
