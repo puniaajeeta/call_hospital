@@ -3,7 +3,7 @@ from .settings import *
 from .settings import BASE_DIR
 
 
-SECRET_KEY = os.environ['SECRET']
+SECRET_KEY = "django-insecure-is6)a4$sla*b6meq)wz4u#%&6y)tn*2atnb)9)!77g-ulrvz4%"
 ALLOWED_HOSTS = [os.environ['WEBSITE_HOSTNAME']]
 CSRF_TRUSTED_ORIGINS = ['https://' + os.environ['WEBSITE_HOSTNAME']]
 DEBUG = False
